@@ -4,7 +4,11 @@ const { createTodo, updateTodo } = require("./types");
 const app = express();
 const cors = require("cors");
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  })
+);
 app.post("/todo", async function (req, res) {
   const createPayload = req.body;
   const parsedPayload = createTodo.safeParse(createPayload);
