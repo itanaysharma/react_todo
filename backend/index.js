@@ -5,7 +5,7 @@ const app = express();
 
 app.use(express.json());
 
-app.post("/todo", function (req, res) {
+app.post("/todo", async function (req, res) {
   const createPayload = req.body;
   const parsedPayload = createTodo.safeParse(createPayload);
   if (!parsedPayload.success) {
@@ -47,3 +47,4 @@ app.put("/completed", async function (req, res) {
     }
   );
 });
+app.listen(3000);
