@@ -1,7 +1,17 @@
-export function Todos() {
+export function Todos({ todos }) {
   return (
     <div>
-      <h1>Todo</h1>
+      {todos.map((todo) => {
+        return (
+          <div>
+            <h1>{todo.title}</h1>
+            <h1>{todo.description}</h1>
+            <button>
+              {todo.completed == true ? "completed" : "Mars as Complete"}
+            </button>
+          </div>
+        );
+      })}
     </div>
   );
 }
